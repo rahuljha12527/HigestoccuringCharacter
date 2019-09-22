@@ -1,0 +1,33 @@
+#include <iostream>
+#include "solution.h"
+#include<cstring>
+#define ASCII_SIZE 256
+
+using namespace std;
+
+int main() {
+    char input[1000];
+    cin.getline(input, 1000);
+    cout << highestOccurringChar(input) << endl;
+}
+
+char highestOccurringChar(char input[]) {
+    // Write your code here
+    
+    int count[ASCII_SIZE]={0};
+    
+    int len=strlen(input);
+    
+    int max=0;
+    char result;
+    
+    for(int i=0;i<len;i++){
+        count[input[i]]++;
+        if(max<count[input[i]]){
+            max=count[input[i]];
+            result=input[i];
+        }
+    }
+
+    return result;
+}
