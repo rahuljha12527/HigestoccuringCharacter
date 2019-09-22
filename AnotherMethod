@@ -1,0 +1,34 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+
+
+// input - given string
+
+
+char highestOccurringChar(char input[]) {
+    // Write your code here
+    int len=strlen(input);
+    int counter=0,max=0,maxChar;
+    for(int i=0;i<len;i++){
+        counter=0;
+        for(int j=i+1;j<len;j++){
+            if(input[i]==input[j]){
+                counter++;
+            }
+            
+            if(max<counter){
+                max=counter;
+                maxChar=i;
+            }
+        }
+    }
+    
+    return input[maxChar];
+}
+
+int main() {
+    char input[1000];
+    cin.getline(input, 1000);
+    cout << highestOccurringChar(input) << endl;
+}
